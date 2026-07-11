@@ -8,7 +8,7 @@ const productsData = [
   },
   {
     name: "Sajadah Arizona Qubah Ukuran 60x110cm Busa Empuk Motif Minimalis Anti Slip",
-    category: "Aksesoris Muslim",
+    category: "Aksesoris",
     image: "./products/sajadah-arizona-qubah-ukuran-60x110cm-busa-empuk-motif-minimalis-anti-slip.webp",
     description: "SajadahArizona Qubah Ukuran 60x110cm Busa Empuk Motif Minimalis Anti Slip.",
     shopeeUrl: "https://s.shopee.co.id/20tlbu7Tad"
