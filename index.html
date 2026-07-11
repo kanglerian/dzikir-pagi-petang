@@ -11,6 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="theme.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-232W7YF5TT"></script>
@@ -26,9 +27,65 @@
     </script>
 
     <style>
+        /* == THEME VARIABLES == */
+        :root {
+            --bg-base: #F7F3EC;
+            --bg-card: #FFFFFF;
+            --bg-elevated: #EDE9E0;
+            --text-primary: #1E1A16;
+            --text-secondary: #4A3F35;
+            --text-muted: #8B7D72;
+            --border: #DDD5C8;
+            --nav-bg: #FFFCF7;
+            --nav-border: #E8E0D5;
+            --ring-track: #E2D9CE;
+            --btn2-bg: #E2D9CE;
+            --btn2-text: #4A3F35;
+            --btn1-bg: #D1FAE5;
+            --btn1-text: #065F46;
+            --accord-bg: #EDE9E0;
+            --arabic-size: 1.875rem;
+            --arabic-line: 3.5rem;
+        }
+
+        [data-theme="dark"] {
+            --bg-base: #18160F;
+            --bg-card: #242018;
+            --bg-elevated: #2C2820;
+            --text-primary: #EDE5D5;
+            --text-secondary: #C0AE9A;
+            --text-muted: #7A6B5E;
+            --border: #38332A;
+            --nav-bg: #1E1C15;
+            --nav-border: #2E2A22;
+            --ring-track: #3A3530;
+            --btn2-bg: #2C2820;
+            --btn2-text: #C0AE9A;
+            --btn1-bg: #064E3B;
+            --btn1-text: #6EE7B7;
+            --accord-bg: #2C2820;
+        }
+
+        [data-font="sm"] {
+            --arabic-size: 1.5rem;
+            --arabic-line: 3rem;
+        }
+
+        [data-font="md"] {
+            --arabic-size: 1.875rem;
+            --arabic-line: 3.5rem;
+        }
+
+        [data-font="lg"] {
+            --arabic-size: 2.5rem;
+            --arabic-line: 4.5rem;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
+            background-color: var(--bg-base) !important;
+            transition: background-color 0.25s ease;
         }
 
         .arabic {
@@ -42,6 +99,110 @@
 
         .hidden {
             display: none;
+        }
+
+        [data-theme="dark"] header.bg-emerald-600 {
+            background-color: #064E3B !important;
+        }
+
+        #dzikir-card {
+            background-color: var(--bg-card) !important;
+            border-color: var(--border) !important;
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+
+        #dzikir-card .border-t {
+            border-color: var(--border) !important;
+        }
+
+        #judul-dzikir {
+            color: #059669 !important;
+        }
+
+        [data-theme="dark"] #judul-dzikir {
+            color: #34D399 !important;
+        }
+
+        #arabic-text {
+            font-size: var(--arabic-size) !important;
+            line-height: var(--arabic-line) !important;
+            color: var(--text-primary) !important;
+            transition: font-size 0.2s ease, line-height 0.2s ease;
+        }
+
+        #translation-text {
+            color: var(--text-secondary) !important;
+        }
+
+        button[onclick="toggleTranslation()"] {
+            background-color: var(--accord-bg) !important;
+            color: var(--text-secondary) !important;
+            border-color: var(--border) !important;
+        }
+
+        #ring-track {
+            color: var(--ring-track) !important;
+        }
+
+        #counter-number {
+            color: var(--text-primary) !important;
+        }
+
+        .label-sisa {
+            color: var(--text-muted) !important;
+        }
+
+        button[onclick="prevDzikir()"] {
+            background-color: var(--btn2-bg) !important;
+            color: var(--btn2-text) !important;
+        }
+
+        button[onclick="nextDzikir()"] {
+            background-color: var(--btn1-bg) !important;
+            color: var(--btn1-text) !important;
+        }
+
+        nav {
+            background-color: var(--nav-bg) !important;
+            border-color: var(--nav-border) !important;
+            transition: background-color 0.25s ease;
+        }
+
+        nav a.text-slate-400 {
+            color: var(--text-muted) !important;
+        }
+
+        [data-theme="dark"] nav a.text-emerald-600 {
+            color: #34D399 !important;
+        }
+
+        footer p {
+            color: var(--text-muted) !important;
+        }
+
+        [data-theme="dark"] footer .text-emerald-400 {
+            color: #6EE7B7 !important;
+        }
+
+        /* Font size buttons */
+        .font-size-btn {
+            background-color: var(--accord-bg);
+            color: var(--text-secondary);
+            border: 1.5px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            min-width: 2rem;
+            line-height: 1.5;
+        }
+
+        .font-size-btn.active-font {
+            background-color: #059669 !important;
+            color: #fff !important;
+            border-color: #059669 !important;
         }
     </style>
 </head>
@@ -58,6 +219,9 @@
                 <button id="notify-btn" onclick="requestNotification()"
                     class="bg-emerald-800 text-emerald-200 px-2 py-1 rounded-xl border border-emerald-500 text-[10px]">
                     🔔 Notif
+                </button>
+                <button id="theme-btn" onclick="ThemeManager.toggle()" title="Ganti Mode"
+                    class="bg-emerald-700 hover:bg-emerald-800 active:scale-95 px-2 py-1.5 rounded-xl border border-emerald-400 transition-all flex items-center text-white">
                 </button>
                 <button onclick="refreshPage()"
                     class="bg-emerald-700 hover:bg-emerald-800 active:scale-95 px-2 py-1.5 rounded-xl border border-emerald-400 transition-all flex items-center">
@@ -81,6 +245,16 @@
                 class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all">
                 📲 Pasang Aplikasi di HP
             </button>
+        </div>
+
+        <!-- Font Size Control -->
+        <div class="flex items-center justify-between w-full mb-3">
+            <span class="label-sisa text-[10px] uppercase tracking-widest font-semibold">Ukuran Teks Arab</span>
+            <div class="flex gap-1.5">
+                <button id="font-sm" class="font-size-btn" onclick="ThemeManager.setFont('sm')">A-</button>
+                <button id="font-md" class="font-size-btn" onclick="ThemeManager.setFont('md')">A</button>
+                <button id="font-lg" class="font-size-btn" onclick="ThemeManager.setFont('lg')">A+</button>
+            </div>
         </div>
 
         <div id="dzikir-card" onclick="decrementCounter()"
@@ -111,15 +285,15 @@
             <div class="flex justify-center items-center mt-2">
                 <div class="relative flex items-center justify-center">
                     <svg class="w-32 h-32 transform -rotate-90">
-                        <circle cx="64" cy="64" r="58" stroke="currentColor" stroke-width="8"
+                        <circle id="ring-track" cx="64" cy="64" r="58" stroke="currentColor" stroke-width="8"
                             fill="transparent" class="text-slate-100" />
-                        <circle id="counter-ring" cx="64" cy="64" r="58" stroke="currentColor"
-                            stroke-width="8" fill="transparent" stroke-dasharray="364.4" stroke-dashoffset="0"
+                        <circle id="counter-ring" cx="64" cy="64" r="58" stroke="currentColor" stroke-width="8"
+                            fill="transparent" stroke-dasharray="364.4" stroke-dashoffset="0"
                             class="text-emerald-500 transition-all duration-300" />
                     </svg>
                     <div class="absolute flex flex-col items-center">
                         <span id="counter-number" class="text-4xl font-bold text-slate-800">0</span>
-                        <span class="text-[10px] uppercase text-slate-400 font-bold tracking-widest">Sisa</span>
+                        <span class="label-sisa text-[10px] uppercase font-bold tracking-widest">Sisa</span>
                     </div>
                 </div>
             </div>
@@ -137,6 +311,7 @@
     <footer class="p-6 text-center text-slate-400 text-xs">
         <p id="dzikir-index">Memuat data...</p>
         <p class="mt-1 opacity-50 italic">Sumber: Hisnul Muslim Syaikh Sa'id al-Qahthani</p>
+        <p class="mt-3 text-slate-300 text-[10px] tracking-wide">© 2026 Dzikir Harian. By Abu Ayumi.</p>
     </footer>
 
     <!-- Bottom Navigation Bar untuk PWA -->
@@ -155,7 +330,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <span class="text-[10px] mt-1">Shop</span>
+                <span class="text-[10px] mt-1">Kebutuhan</span>
             </a>
         </div>
     </nav>
