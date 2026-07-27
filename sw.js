@@ -1,5 +1,17 @@
-const CACHE_NAME = 'dzikir-v6';
-const ASSETS = ['./', './index.html', './shop.html', './products.js', './theme.js', './manifest.json', './dzikr.json'];
+const CACHE_NAME = 'dzikir-v10';
+const ASSETS = [
+  './',
+  './index.html',
+  './dzikir-pagi-petang.html',
+  './dzikir-bada-shalat.html',
+  './ruqyah-syariyyah.html',
+  './motivation.js',
+  './shop.html',
+  './products.js',
+  './theme.js',
+  './manifest.json',
+  './dzikr.json'
+];
 
 // Install: cache semua aset
 self.addEventListener('install', e => {

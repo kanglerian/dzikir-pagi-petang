@@ -1,7 +1,7 @@
 {
-  "name": "Dzikir Pagi Sore App",
+  "name": "Dzikir - Buku Saku Digital",
   "short_name": "Dzikir",
-  "description": "Aplikasi panduan Dzikir Pagi dan Petang berdasarkan Al-Qur'an dan Sunnah (Hisnul Muslim).",
+  "description": "Aplikasi panduan Dzikir Pagi Petang, Dzikir Ba'da Shalat, dan Ruqyah Syari'yyah berdasarkan Al-Qur'an dan Sunnah.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

@@ -4,228 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dzikir Pagi & Sore</title>
+    <title>Dzikir - Buku Saku Digital Dzikir Pagi Petang, Ba'da Shalat & Ruqyah</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="Dzikir - Buku Saku Digital Dzikir Pagi Petang, Ba'da Shalat & Ruqyah">
+    <meta name="description" content="Aplikasi Dzikir Digital Pocket Book gratis & offline. Berisi bacaan Dzikir Pagi & Petang Hisnul Muslim, Dzikir Ba'da Shalat Fardhu, dan Ruqyah Syari'yyah berdasarkan Al-Qur'an dan Sunnah.">
+    <meta name="keywords" content="dzikir, dzikir pagi petang, dzikir bada shalat, ruqyah syariyyah, hisnul muslim, aplikasi dzikir, buku saku digital, dzikir online">
+    <meta name="author" content="Lerian">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dzikir-pagi-petang.kodelabo.com/">
+    <meta property="og:title" content="Dzikir - Buku Saku Digital">
+    <meta property="og:description" content="Aplikasi panduan Dzikir Pagi Petang, Dzikir Ba'da Shalat, & Ruqyah Syari'yyah berdasarkan Al-Qur'an dan Sunnah. Gratis, ringan, dan bisa offline.">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/2972/2972531.png">
+    <meta property="og:site_name" content="Dzikir App">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://dzikir-pagi-petang.kodelabo.com/">
+    <meta name="twitter:title" content="Dzikir - Buku Saku Digital">
+    <meta name="twitter:description" content="Panduan Dzikir Pagi & Petang, Ba'da Shalat, dan Ruqyah Syari'yyah online & offline.">
+    <meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/2972/2972531.png">
+
+    <!-- Structured Data (JSON-LD) for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Dzikir - Buku Saku Digital",
+      "url": "https://dzikir-pagi-petang.kodelabo.com/",
+      "description": "Aplikasi panduan Dzikir Pagi Petang, Dzikir Ba'da Shalat, dan Ruqyah Syari'yyah berdasarkan Al-Qur'an dan Sunnah.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "author": {
+        "@type": "Person",
+        "name": "Lerian"
+      }
+    }
+    </script>
+
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#059669">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
     <script src="theme.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="motivation.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-232W7YF5TT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-232W7YF5TT');
     </script>
 
     <style>
-        /* == THEME VARIABLES == */
-        :root {
-            --bg-base: #F7F3EC;
-            --bg-card: #FFFFFF;
-            --bg-elevated: #EDE9E0;
-            --text-primary: #1E1A16;
-            --text-secondary: #4A3F35;
-            --text-muted: #8B7D72;
-            --border: #DDD5C8;
-            --nav-bg: #FFFCF7;
-            --nav-border: #E8E0D5;
-            --ring-track: #E2D9CE;
-            --btn2-bg: #E2D9CE;
-            --btn2-text: #4A3F35;
-            --btn1-bg: #D1FAE5;
-            --btn1-text: #065F46;
-            --accord-bg: #EDE9E0;
-            --arabic-size: 1.875rem;
-            --arabic-line: 3.5rem;
-        }
-
-        [data-theme="dark"] {
-            --bg-base: #18160F;
-            --bg-card: #242018;
-            --bg-elevated: #2C2820;
-            --text-primary: #EDE5D5;
-            --text-secondary: #C0AE9A;
-            --text-muted: #7A6B5E;
-            --border: #38332A;
-            --nav-bg: #1E1C15;
-            --nav-border: #2E2A22;
-            --ring-track: #3A3530;
-            --btn2-bg: #2C2820;
-            --btn2-text: #C0AE9A;
-            --btn1-bg: #064E3B;
-            --btn1-text: #6EE7B7;
-            --accord-bg: #2C2820;
-        }
-
-        [data-font="sm"] {
-            --arabic-size: 1.5rem;
-            --arabic-line: 3rem;
-        }
-
-        [data-font="md"] {
-            --arabic-size: 1.875rem;
-            --arabic-line: 3.5rem;
-        }
-
-        [data-font="lg"] {
-            --arabic-size: 2.5rem;
-            --arabic-line: 4.5rem;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
-            background-color: var(--bg-base) !important;
-            transition: background-color 0.25s ease;
         }
 
-        .arabic {
-            font-family: 'Amiri', serif;
-            direction: rtl;
+        .fade-transition {
+            transition: opacity 0.25s ease-in-out;
         }
 
-        .progress-bar {
-            transition: width 0.3s ease;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        [data-theme="dark"] header.bg-emerald-600 {
-            background-color: #064E3B !important;
-        }
-
-        #dzikir-card {
-            background-color: var(--bg-card) !important;
-            border-color: var(--border) !important;
-            transition: background-color 0.25s ease, border-color 0.25s ease;
-        }
-
-        #dzikir-card .border-t {
-            border-color: var(--border) !important;
-        }
-
-        #judul-dzikir {
-            color: #059669 !important;
-        }
-
-        [data-theme="dark"] #judul-dzikir {
-            color: #34D399 !important;
-        }
-
-        #arabic-text {
-            font-size: var(--arabic-size) !important;
-            line-height: var(--arabic-line) !important;
-            color: var(--text-primary) !important;
-            transition: font-size 0.2s ease, line-height 0.2s ease;
-        }
-
-        #translation-text {
-            color: var(--text-secondary) !important;
-        }
-
-        button[onclick="toggleTranslation()"] {
-            background-color: var(--accord-bg) !important;
-            color: var(--text-secondary) !important;
-            border-color: var(--border) !important;
-        }
-
-        #ring-track {
-            color: var(--ring-track) !important;
-        }
-
-        #counter-number {
-            color: var(--text-primary) !important;
-        }
-
-        .label-sisa {
-            color: var(--text-muted) !important;
-        }
-
-        button[onclick="prevDzikir()"] {
-            background-color: var(--btn2-bg) !important;
-            color: var(--btn2-text) !important;
-        }
-
-        button[onclick="nextDzikir()"] {
-            background-color: var(--btn1-bg) !important;
-            color: var(--btn1-text) !important;
-        }
-
-        nav {
-            background-color: var(--nav-bg) !important;
-            border-color: var(--nav-border) !important;
-            transition: background-color 0.25s ease;
-        }
-
-        nav a.text-slate-400 {
-            color: var(--text-muted) !important;
-        }
-
-        [data-theme="dark"] nav a.text-emerald-600 {
-            color: #34D399 !important;
-        }
-
-        footer p {
-            color: var(--text-muted) !important;
-        }
-
-        [data-theme="dark"] footer .text-emerald-400 {
-            color: #6EE7B7 !important;
-        }
-
-        /* Font size buttons */
-        .font-size-btn {
-            background-color: var(--accord-bg);
-            color: var(--text-secondary);
-            border: 1.5px solid var(--border);
-            border-radius: 0.5rem;
-            padding: 0.2rem 0.6rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            min-width: 2rem;
-            line-height: 1.5;
-        }
-
-        .font-size-btn.active-font {
-            background-color: #059669 !important;
-            color: #fff !important;
-            border-color: #059669 !important;
+        .fade-out {
+            opacity: 0;
         }
     </style>
 </head>
 
-<body class="bg-slate-50 min-h-screen flex flex-col pb-20">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-24 transition-colors duration-200">
 
-    <header class="bg-emerald-600 text-white p-4 shadow-md sticky top-0 z-10">
+    <!-- Header App Bar -->
+    <header class="bg-emerald-600 dark:bg-emerald-800 text-white p-4 shadow-md sticky top-0 z-10">
         <div class="max-w-md mx-auto flex justify-between items-center">
-            <h1 id="app-title" class="text-xl font-bold">Dzikir...</h1>
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-emerald-700/80 border border-emerald-400/50 flex items-center justify-center font-bold text-lg shadow-inner">
+                    📿
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-tight leading-tight">Dzikir</h1>
+                    <p class="text-[10px] text-emerald-100/90 font-medium">Buku Saku Digital</p>
+                </div>
+            </div>
             <div class="flex items-center gap-2">
-                <button onclick="toggleMode()" id="mode-badge"
-                    class="bg-emerald-700 px-3 py-1 rounded-full text-xs font-medium border border-emerald-400">Ganti
-                    Waktu</button>
                 <button id="notify-btn" onclick="requestNotification()"
-                    class="bg-emerald-800 text-emerald-200 px-2 py-1 rounded-xl border border-emerald-500 text-[10px]">
-                    🔔 Notif
+                    class="bg-emerald-700 dark:bg-emerald-900 hover:bg-emerald-800 text-white px-2.5 py-1.5 rounded-xl border border-emerald-400/60 text-xs font-medium transition-all active:scale-95 flex items-center gap-1"
+                    title="Aktifkan Notifikasi">
+                    <span>🔔</span> <span class="hidden sm:inline">Notif</span>
                 </button>
                 <button id="theme-btn" onclick="ThemeManager.toggle()" title="Ganti Mode"
-                    class="bg-emerald-700 hover:bg-emerald-800 active:scale-95 px-2 py-1.5 rounded-xl border border-emerald-400 transition-all flex items-center text-white">
+                    class="bg-emerald-700 dark:bg-emerald-900 hover:bg-emerald-800 active:scale-95 px-2.5 py-1.5 rounded-xl border border-emerald-400/60 transition-all flex items-center text-white">
                 </button>
-                <button onclick="refreshPage()"
-                    class="bg-emerald-700 hover:bg-emerald-800 active:scale-95 px-2 py-1.5 rounded-xl border border-emerald-400 transition-all flex items-center">
-                    <svg id="refresh-icon" class="w-3.5 h-3.5 transition-transform duration-500" fill="none"
+                <button onclick="refreshPage()" title="Muat Ulang"
+                    class="bg-emerald-700 dark:bg-emerald-900 hover:bg-emerald-800 active:scale-95 px-2 py-1.5 rounded-xl border border-emerald-400/60 transition-all flex items-center text-white">
+                    <svg id="refresh-icon" class="w-4 h-4 transition-transform duration-500" fill="none"
                         stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -233,99 +118,235 @@
                 </button>
             </div>
         </div>
-        <div class="max-w-md mx-auto mt-3 bg-emerald-800 h-1.5 rounded-full overflow-hidden">
-            <div id="progress-indicator" class="progress-bar bg-white h-full" style="width: 0%"></div>
-        </div>
     </header>
 
-    <main class="flex-grow flex flex-col items-center p-4 max-w-md mx-auto w-full">
+    <main class="flex-grow flex flex-col items-center p-4 max-w-md mx-auto w-full gap-4">
 
-        <div id="install-container" class="hidden w-full mb-4">
+        <!-- PWA Install Banner -->
+        <div id="install-container" class="hidden w-full">
             <button onclick="installPWA()"
-                class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all">
-                📲 Pasang Aplikasi di HP
+                class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-2xl shadow-md flex items-center justify-center gap-2 transition-all">
+                📲 Pasang Aplikasi Dzikir di HP
             </button>
         </div>
 
-        <!-- Font Size Control -->
-        <div class="flex items-center justify-between w-full mb-3">
-            <span class="label-sisa text-[10px] uppercase tracking-widest font-semibold">Ukuran Teks Arab</span>
-            <div class="flex gap-1.5">
-                <button id="font-sm" class="font-size-btn" onclick="ThemeManager.setFont('sm')">A-</button>
-                <button id="font-md" class="font-size-btn" onclick="ThemeManager.setFont('md')">A</button>
-                <button id="font-lg" class="font-size-btn" onclick="ThemeManager.setFont('lg')">A+</button>
+        <!-- Sapaan (Greeting Card) -->
+        <div class="w-full rounded-2xl p-5 bg-gradient-to-br from-emerald-600 to-teal-800 dark:from-emerald-800 dark:to-teal-950 text-white shadow-md relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-white/20">
+                    <span id="greeting-icon">🌅</span>
+                    <span id="greeting-time">Selamat Pagi</span>
+                </div>
+                <h2 id="greeting-title" class="text-xl font-bold mb-1">Assalamu'alaikum!</h2>
+                <p id="greeting-subtitle" class="text-xs text-emerald-100 leading-relaxed opacity-95">
+                    Mari basahi lidah dengan mengingat Allah hari ini agar hati senantiasa tenang dan penuh berkah.
+                </p>
             </div>
         </div>
 
-        <div id="dzikir-card" onclick="decrementCounter()"
-            class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 w-full flex flex-col gap-5 cursor-pointer active:scale-[0.98] transition-transform select-none">
+        <!-- Widget Jadwal Shalat & Tanggal Hijriyah -->
+        <div class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-100 dark:border-slate-800">
+                <div>
+                    <h3 class="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                        Jadwal Shalat
+                    </h3>
+                    <button onclick="detectUserLocation()" id="prayer-location" class="text-[11px] text-slate-500 dark:text-slate-400 font-medium hover:text-emerald-600 transition-colors flex items-center gap-1 mt-0.5">
+                        📍 Jakarta & Sekitarnya (Deteksi)
+                    </button>
+                </div>
+                <div class="text-right">
+                    <span id="hijri-date" class="text-xs font-bold text-slate-800 dark:text-slate-200 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-lg border border-emerald-200 dark:border-emerald-800">
+                        13 Safar 1448 H
+                    </span>
+                </div>
+            </div>
 
-            <h2 id="judul-dzikir" class="text-emerald-700 font-bold text-sm uppercase tracking-wide"></h2>
+            <!-- Grid 5 Waktu Shalat -->
+            <div class="grid grid-cols-5 gap-1.5 text-center">
+                <div id="item-fajr" class="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+                    <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400">Subuh</span>
+                    <span id="time-fajr" class="text-xs font-bold text-slate-800 dark:text-slate-100 mt-0.5">04:43</span>
+                </div>
+                <div id="item-dhuhr" class="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+                    <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400">Zhur</span>
+                    <span id="time-dhuhr" class="text-xs font-bold text-slate-800 dark:text-slate-100 mt-0.5">11:59</span>
+                </div>
+                <div id="item-asr" class="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+                    <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400">Ashar</span>
+                    <span id="time-asr" class="text-xs font-bold text-slate-800 dark:text-slate-100 mt-0.5">15:21</span>
+                </div>
+                <div id="item-maghrib" class="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+                    <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400">Maghrib</span>
+                    <span id="time-maghrib" class="text-xs font-bold text-slate-800 dark:text-slate-100 mt-0.5">17:54</span>
+                </div>
+                <div id="item-isha" class="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+                    <span class="text-[10px] font-semibold text-slate-500 dark:text-slate-400">Isya</span>
+                    <span id="time-isha" class="text-xs font-bold text-slate-800 dark:text-slate-100 mt-0.5">19:07</span>
+                </div>
+            </div>
+        </div>
 
-            <div id="arabic-text" class="arabic text-3xl leading-relaxed text-right text-slate-800"></div>
+        <!-- Target Amalan Hari Ini (Daily Checklist) -->
+        <div class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm relative overflow-hidden">
+            <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-100 dark:border-slate-800">
+                <h3 class="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                    Target Amalan Hari Ini
+                </h3>
+                <span id="tracker-progress-badge" class="text-[10px] font-bold text-emerald-800 bg-emerald-100 dark:bg-emerald-950/80 dark:text-emerald-300 px-2.5 py-0.5 rounded-full">
+                    0 / 4 Selesai
+                </span>
+            </div>
 
-            <!-- <div id="latin-text" class="text-emerald-600 text-xs font-semibold italic leading-relaxed border-l-2 border-emerald-200 pl-3"></div> -->
+            <!-- Progress Bar Amalan -->
+            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden mb-3">
+                <div id="tracker-progress-bar" class="bg-emerald-500 h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
 
-            <!-- Accordion Terjemahan -->
-            <div class="border-t pt-4" onclick="event.stopPropagation()">
-                <button onclick="toggleTranslation()"
-                    class="flex justify-between items-center w-full bg-slate-50 hover:bg-emerald-50 text-slate-600 hover:text-emerald-700 font-semibold text-xs transition-all py-2.5 px-4 rounded-xl border border-slate-200 hover:border-emerald-200">
-                    <span>Tampilkan Terjemahan</span>
-                    <svg id="accordion-icon" class="w-4 h-4 transform transition-transform duration-300 text-slate-500"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
+            <!-- Grid 4 Checklist Items -->
+            <div class="grid grid-cols-2 gap-2 text-xs">
+                <button onclick="toggleTrackerItem('pagi')" id="check-pagi" class="p-2.5 rounded-xl border flex items-center justify-between transition-all active:scale-95 text-left">
+                    <span class="font-semibold">Dzikir Pagi</span>
+                    <span class="status-icon font-bold">⭕</span>
                 </button>
-                <div id="translation-container"
-                    class="mt-2 text-slate-600 text-sm leading-relaxed overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                    <p id="translation-text" class="pt-2 px-2"></p>
-                </div>
-            </div>
-
-            <div class="flex justify-center items-center mt-2">
-                <div class="relative flex items-center justify-center">
-                    <svg class="w-32 h-32 transform -rotate-90">
-                        <circle id="ring-track" cx="64" cy="64" r="58" stroke="currentColor" stroke-width="8"
-                            fill="transparent" class="text-slate-100" />
-                        <circle id="counter-ring" cx="64" cy="64" r="58" stroke="currentColor" stroke-width="8"
-                            fill="transparent" stroke-dasharray="364.4" stroke-dashoffset="0"
-                            class="text-emerald-500 transition-all duration-300" />
-                    </svg>
-                    <div class="absolute flex flex-col items-center">
-                        <span id="counter-number" class="text-4xl font-bold text-slate-800">0</span>
-                        <span class="label-sisa text-[10px] uppercase font-bold tracking-widest">Sisa</span>
-                    </div>
-                </div>
+                <button onclick="toggleTrackerItem('sore')" id="check-sore" class="p-2.5 rounded-xl border flex items-center justify-between transition-all active:scale-95 text-left">
+                    <span class="font-semibold">Dzikir Petang</span>
+                    <span class="status-icon font-bold">⭕</span>
+                </button>
+                <button onclick="toggleTrackerItem('bada_shalat')" id="check-bada_shalat" class="p-2.5 rounded-xl border flex items-center justify-between transition-all active:scale-95 text-left">
+                    <span class="font-semibold">Ba'da Shalat</span>
+                    <span class="status-icon font-bold">⭕</span>
+                </button>
+                <button onclick="toggleTrackerItem('ruqyah')" id="check-ruqyah" class="p-2.5 rounded-xl border flex items-center justify-between transition-all active:scale-95 text-left">
+                    <span class="font-semibold">Ruqyah</span>
+                    <span class="status-icon font-bold">⭕</span>
+                </button>
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 w-full mt-6">
-            <button onclick="prevDzikir()"
-                class="py-3 px-4 rounded-xl bg-slate-200 text-slate-700 font-semibold active:bg-slate-300">Kembali</button>
-            <button onclick="nextDzikir()"
-                class="py-3 px-4 rounded-xl bg-emerald-100 text-emerald-700 font-semibold active:bg-emerald-200">Lanjut</button>
+        <!-- Kalimat Motivasi -->
+        <div class="w-full bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/60 rounded-2xl p-5 shadow-sm relative overflow-hidden">
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+                    Motivasiku Hari Ini
+                </span>
+                <div class="flex items-center gap-2">
+                    <button onclick="shareCurrentQuote()" class="text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:underline flex items-center gap-1 transition-transform active:scale-95" title="Bagikan ke WhatsApp">
+                        <span>📲</span> <span class="text-[10px]">Bagikan</span>
+                    </button>
+                    <button onclick="changeMotivationQuote()" class="text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:underline flex items-center gap-1 transition-transform active:rotate-180 duration-300" title="Kutipan Lain">
+                        <span>🔄</span> <span class="text-[10px]">Acak</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="quote-wrapper" class="fade-transition">
+                <p id="motivation-text" class="text-sm font-medium italic text-slate-800 dark:text-slate-200 leading-relaxed">
+                    "Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram."
+                </p>
+                <p id="motivation-source" class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-2 text-right">
+                    — QS. Ar-Ra'd: 28
+                </p>
+            </div>
         </div>
+
+        <!-- Header Menu Title -->
+        <div class="w-full flex items-center justify-between mt-1 px-1">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Pilih Amalan Dzikir</h3>
+            <span class="text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300 text-emerald-800 px-2 py-0.5 rounded-md">Buku Saku</span>
+        </div>
+
+        <!-- MENU 1: Dzikir Pagi & Petang -->
+        <a href="dzikir-pagi-petang.html" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm block group cursor-pointer hover:border-emerald-500 dark:hover:border-emerald-600 transition-all">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <h4 class="font-bold text-base text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                        Dzikir Pagi & Petang
+                    </h4>
+                    <span class="bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Utama</span>
+                </div>
+                <svg class="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Perlindungan & pembuka pintu rezeki pagi dan petang (Hisnul Muslim).
+            </p>
+            <div class="mt-3.5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2">
+                <span onclick="event.preventDefault(); window.location.href='dzikir-pagi-petang.html?mode=pagi'" class="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-lg border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 transition-colors">
+                    🌅 Waktu Pagi
+                </span>
+                <span onclick="event.preventDefault(); window.location.href='dzikir-pagi-petang.html?mode=sore'" class="text-[11px] font-semibold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded-lg border border-amber-200 dark:border-amber-800 hover:bg-amber-100 transition-colors">
+                    🌆 Waktu Petang
+                </span>
+            </div>
+        </a>
+
+        <!-- MENU 2: Dzikir Ba'da Shalat -->
+        <a href="dzikir-bada-shalat.html" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm block group cursor-pointer hover:border-emerald-500 dark:hover:border-emerald-600 transition-all">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <h4 class="font-bold text-base text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                        Dzikir Ba'da Shalat
+                    </h4>
+                    <span class="bg-blue-100 dark:bg-blue-950 dark:text-blue-300 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Rutin</span>
+                </div>
+                <svg class="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Bacaan istighfar, tasbih, tahmid, takbir & doa setelah shalat fardhu.
+            </p>
+            <div class="mt-3.5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <span class="text-[11px] font-medium text-slate-500 dark:text-slate-400">7 Rangkaian Bacaan Lengkap</span>
+                <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">Mulai Membaca →</span>
+            </div>
+        </a>
+
+        <!-- MENU 3: Ruqyah Syari'yyah -->
+        <a href="ruqyah-syariyyah.html" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm block group cursor-pointer hover:border-emerald-500 dark:hover:border-emerald-600 transition-all">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <h4 class="font-bold text-base text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                        Ruqyah Syari'yyah
+                    </h4>
+                    <span class="bg-teal-100 dark:bg-teal-950 dark:text-teal-300 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Penawar</span>
+                </div>
+                <svg class="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Ayat penawar & doa benteng diri dari penyakit, gangguan & ‘ain.
+            </p>
+            <div class="mt-3.5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <span class="text-[11px] font-medium text-slate-500 dark:text-slate-400">8 Ayat & Doa Perlindungan</span>
+                <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">Mulai Ruqyah →</span>
+            </div>
+        </a>
 
     </main>
 
-    <footer class="p-6 text-center text-slate-400 text-xs">
-        <p id="dzikir-index">Memuat data...</p>
-        <p class="mt-1 opacity-50 italic">Sumber: Hisnul Muslim Syaikh Sa'id al-Qahthani</p>
-        <p class="mt-3 text-slate-300 text-[10px] tracking-wide">© 2026 Dzikir Harian. By Abu Ayumi.</p>
+    <footer class="p-6 text-center text-slate-400 dark:text-slate-500 text-xs">
+        <p class="font-medium">Aplikasi Dzikir Digital Pocket Book</p>
+        <p class="mt-1 opacity-60 italic">Berdasarkan Al-Qur'an dan Sunnah Rasulullah ﷺ</p>
+        <p class="mt-3 text-[10px] tracking-wide opacity-50">© 2026 Dzikir. By Abu Ayumi.</p>
     </footer>
 
-    <!-- Bottom Navigation Bar untuk PWA -->
-    <nav class="bg-white border-t border-slate-200 fixed bottom-0 left-0 right-0 z-20 shadow-lg">
+    <!-- Bottom Navigation Bar -->
+    <nav class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 fixed bottom-0 left-0 right-0 z-20 shadow-lg">
         <div class="max-w-md mx-auto flex justify-around items-center py-2">
-            <a href="index.html" class="flex flex-col items-center text-emerald-600 font-semibold py-1">
+            <a href="index.html" class="flex flex-col items-center text-emerald-600 dark:text-emerald-400 font-semibold py-1">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
-                <span class="text-[10px] mt-1">Dzikir</span>
+                <span class="text-[10px] mt-1">Beranda</span>
             </a>
             <a href="shop.html"
-                class="flex flex-col items-center text-slate-400 hover:text-emerald-600 transition-all font-medium py-1">
+                class="flex flex-col items-center text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-medium py-1">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -336,110 +357,190 @@
     </nav>
 
     <script>
-        let dataDzikir = {
-            pagi: [],
-            sore: []
-        };
-        let currentMode = 'pagi';
-        let currentIndex = 0;
-        let currentCount = 0;
         let deferredPrompt;
 
-        // 1. LOAD DATA DARI JSON
-        async function loadData() {
-            try {
-                const response = await fetch('dzikr.json');
-                dataDzikir = await response.json();
-                initApp();
-            } catch (error) {
-                console.error("Gagal memuat JSON:", error);
-                document.getElementById('arabic-text').innerText =
-                    "Gagal memuat data. Pastikan file dzikr.json tersedia.";
-            }
-        }
-
-        function initApp() {
+        // Init Greeting
+        function initGreeting() {
             const hour = new Date().getHours();
-            currentMode = (hour >= 15 || hour < 4) ? 'sore' : 'pagi';
-            updateUI();
-        }
+            const timeElem = document.getElementById('greeting-time');
+            const iconElem = document.getElementById('greeting-icon');
+            const subElem = document.getElementById('greeting-subtitle');
 
-        function updateUI() {
-            const list = dataDzikir[currentMode];
-            console.log("Current Mode:", currentMode, "List Length:", list ? list.length : 0);
-            if (!list || list.length === 0) return;
-
-            const item = list[currentIndex];
-
-            document.getElementById('app-title').innerText = `Dzikir ${currentMode === 'pagi' ? 'Pagi' : 'Sore'}`;
-            document.getElementById('judul-dzikir').innerText = item.judul;
-            document.getElementById('arabic-text').innerText = item.arab;
-            // document.getElementById('latin-text').innerText = item.latin || '';
-            document.getElementById('translation-text').innerText = item.arti;
-            document.getElementById('dzikir-index').innerText = `Dzikir ${currentIndex + 1} dari ${list.length}`;
-
-            if (currentCount <= 0) currentCount = item.ulang;
-            document.getElementById('counter-number').innerText = currentCount;
-
-            updateRing(currentCount, item.ulang);
-            document.getElementById('progress-indicator').style.width = `${((currentIndex) / list.length) * 100}%`;
-
-            // Reset accordion state to collapsed when switching items
-            isTranslationOpen = false;
-            const container = document.getElementById('translation-container');
-            const icon = document.getElementById('accordion-icon');
-            if (container && icon) {
-                container.style.maxHeight = "0px";
-                container.style.opacity = "0";
-                icon.classList.remove('rotate-180');
-            }
-        }
-
-        function updateRing(c, t) {
-            const ring = document.getElementById('counter-ring');
-            ring.style.strokeDashoffset = 364.4 - (c / t) * 364.4;
-        }
-
-        function decrementCounter() {
-            if (currentCount > 0) {
-                currentCount--;
-                if ("vibrate" in navigator) navigator.vibrate(50);
-
-                if (currentCount === 0) {
-                    setTimeout(nextDzikir, 300);
-                }
-            }
-            updateUI();
-        }
-
-        function nextDzikir() {
-            const list = dataDzikir[currentMode];
-            if (currentIndex < list.length - 1) {
-                currentIndex++;
-                currentCount = 0;
-                updateUI();
-                window.scrollTo(0, 0);
+            if (hour >= 4 && hour < 11) {
+                timeElem.innerText = "Selamat Pagi";
+                iconElem.innerText = "🌅";
+                subElem.innerText = "Awali harimu dengan Dzikir Pagi untuk meraih perlindungan dan keberkahan hingga petang.";
+            } else if (hour >= 11 && hour < 15) {
+                timeElem.innerText = "Selamat Siang";
+                iconElem.innerText = "☀️";
+                subElem.innerText = "Di tengah aktivitas siang, luangkan sejenak untuk mengingat Allah agar hati tetap tenang.";
+            } else if (hour >= 15 && hour < 18) {
+                timeElem.innerText = "Selamat Sore";
+                iconElem.innerText = "🌆";
+                subElem.innerText = "Persiapkan Dzikir Petang untuk memohon perlindungan sepanjang malam hari.";
             } else {
-                alert("Alhamdulillah, dzikir " + currentMode + " selesai!");
-                currentIndex = 0;
-                currentCount = 0;
-                updateUI();
+                timeElem.innerText = "Selamat Malam";
+                iconElem.innerText = "🌙";
+                subElem.innerText = "Tutup harimu dengan memperbanyak dzikir dan istighfar untuk kedamaian jiwa.";
             }
         }
 
-        function prevDzikir() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                currentCount = 0;
-                updateUI();
+        // Init Motivation Quote & Share
+        function renderMotivationQuote(quoteObj) {
+            const wrapper = document.getElementById('quote-wrapper');
+            const textElem = document.getElementById('motivation-text');
+            const sourceElem = document.getElementById('motivation-source');
+
+            wrapper.classList.add('fade-out');
+            setTimeout(() => {
+                textElem.innerText = `"${quoteObj.quote}"`;
+                sourceElem.innerText = `— ${quoteObj.source}`;
+                wrapper.classList.remove('fade-out');
+            }, 250);
+        }
+
+        function changeMotivationQuote() {
+            if (typeof getRandomMotivation === 'function') {
+                renderMotivationQuote(getRandomMotivation());
             }
         }
 
-        function toggleMode() {
-            currentMode = currentMode === 'pagi' ? 'sore' : 'pagi';
-            currentIndex = 0;
-            currentCount = 0;
-            updateUI();
+        function shareCurrentQuote() {
+            const textElem = document.getElementById('motivation-text');
+            const sourceElem = document.getElementById('motivation-source');
+            const quoteText = textElem ? textElem.innerText : "";
+            const sourceText = sourceElem ? sourceElem.innerText : "";
+
+            const message = `✨ *Pengingat Dzikir Hari Ini*\n\n${quoteText}\n_${sourceText}_\n\nBuka aplikasi Dzikir (Buku Saku Digital):\nhttps://dzikir-pagi-petang.kodelabo.com/`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Dzikir - Pengingat Hari Ini',
+                    text: message,
+                    url: 'https://dzikir-pagi-petang.kodelabo.com/'
+                }).catch(() => {});
+            } else {
+                const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+                window.open(waUrl, '_blank');
+            }
+        }
+
+        // --- FEATURE #4: PRAYER TIMES & HIJRI DATE API ---
+        async function fetchPrayerTimes(lat = -6.2088, lng = 106.8456, locationName = "Jakarta & Sekitarnya") {
+            const locElem = document.getElementById('prayer-location');
+            const hijriElem = document.getElementById('hijri-date');
+            if (locElem) locElem.innerText = `📍 ${locationName}`;
+
+            try {
+                const res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lng}&method=11`);
+                const json = await res.json();
+                if (json && json.code === 200 && json.data) {
+                    const timings = json.data.timings;
+                    const hijri = json.data.date.hijri;
+                    
+                    if (hijriElem && hijri) {
+                        hijriElem.innerText = `${hijri.day} ${hijri.month.en} ${hijri.year} H`;
+                    }
+
+                    document.getElementById('time-fajr').innerText = timings.Fajr;
+                    document.getElementById('time-dhuhr').innerText = timings.Dhuhr;
+                    document.getElementById('time-asr').innerText = timings.Asr;
+                    document.getElementById('time-maghrib').innerText = timings.Maghrib;
+                    document.getElementById('time-isha').innerText = timings.Isha;
+
+                    highlightNextPrayer(timings);
+                }
+            } catch (err) {
+                console.warn("Gagal memuat Jadwal Shalat:", err);
+            }
+        }
+
+        function detectUserLocation() {
+            const locElem = document.getElementById('prayer-location');
+            if ("geolocation" in navigator) {
+                if (locElem) locElem.innerText = "📍 Mendeteksi lokasi...";
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => {
+                        fetchPrayerTimes(pos.coords.latitude, pos.coords.longitude, "Lokasi Anda");
+                    },
+                    (err) => {
+                        console.warn("Lokasi ditolak, menggunakan default Jakarta:", err);
+                        fetchPrayerTimes(-6.2088, 106.8456, "Jakarta & Sekitarnya");
+                    }
+                );
+            } else {
+                fetchPrayerTimes(-6.2088, 106.8456, "Jakarta & Sekitarnya");
+            }
+        }
+
+        function highlightNextPrayer(timings) {
+            const now = new Date();
+            const nowMinutes = now.getHours() * 60 + now.getMinutes();
+
+            const parseMinutes = (timeStr) => {
+                if (!timeStr) return 0;
+                const [h, m] = timeStr.split(':').map(Number);
+                return h * 60 + m;
+            };
+
+            const prayers = [
+                { id: 'item-fajr', name: 'Subuh', minutes: parseMinutes(timings.Fajr) },
+                { id: 'item-dhuhr', name: 'Zhur', minutes: parseMinutes(timings.Dhuhr) },
+                { id: 'item-asr', name: 'Ashar', minutes: parseMinutes(timings.Asr) },
+                { id: 'item-maghrib', name: 'Maghrib', minutes: parseMinutes(timings.Maghrib) },
+                { id: 'item-isha', name: 'Isya', minutes: parseMinutes(timings.Isha) }
+            ];
+
+            let next = prayers.find(p => p.minutes > nowMinutes) || prayers[0];
+
+            prayers.forEach(p => {
+                const elem = document.getElementById(p.id);
+                if (elem) {
+                    if (p.id === next.id) {
+                        elem.className = "flex flex-col items-center justify-center p-2 rounded-xl bg-emerald-600 dark:bg-emerald-700 text-white shadow-sm ring-2 ring-emerald-400/50 scale-105 transition-all";
+                        elem.querySelector('span:first-child').className = "text-[10px] font-bold text-emerald-100";
+                        elem.querySelector('span:last-child').className = "text-xs font-extrabold text-white mt-0.5";
+                    } else {
+                        elem.className = "flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60";
+                        elem.querySelector('span:first-child').className = "text-[10px] font-semibold text-slate-500 dark:text-slate-400";
+                        elem.querySelector('span:last-child').className = "text-xs font-bold text-slate-800 dark:text-slate-100 mt-0.5";
+                    }
+                }
+            });
+        }
+
+        // --- FEATURE: DAILY TRACKER CHECKLIST ---
+        function renderDailyTracker() {
+            if (!window.TrackerManager) return;
+            const data = TrackerManager.getData();
+            let completedCount = 0;
+            const keys = ['pagi', 'sore', 'bada_shalat', 'ruqyah'];
+
+            keys.forEach(k => {
+                const btn = document.getElementById(`check-${k}`);
+                if (!btn) return;
+                const isDone = data[k];
+                if (isDone) completedCount++;
+
+                if (isDone) {
+                    btn.className = "p-2.5 rounded-xl border border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 flex items-center justify-between transition-all active:scale-95 text-left shadow-xs";
+                    btn.querySelector('.status-icon').innerText = "✅";
+                } else {
+                    btn.className = "p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 hover:border-slate-300 flex items-center justify-between transition-all active:scale-95 text-left";
+                    btn.querySelector('.status-icon').innerText = "⭕";
+                }
+            });
+
+            const badge = document.getElementById('tracker-progress-badge');
+            const bar = document.getElementById('tracker-progress-bar');
+            if (badge) badge.innerText = `${completedCount} / 4 Selesai`;
+            if (bar) bar.style.width = `${(completedCount / 4) * 100}%`;
+        }
+
+        function toggleTrackerItem(type) {
+            if (!window.TrackerManager) return;
+            TrackerManager.toggle(type);
+            renderDailyTracker();
         }
 
         function refreshPage() {
@@ -448,26 +549,7 @@
             setTimeout(() => window.location.reload(true), 400);
         }
 
-        let isTranslationOpen = false;
-
-        function toggleTranslation() {
-            isTranslationOpen = !isTranslationOpen;
-            const container = document.getElementById('translation-container');
-            const icon = document.getElementById('accordion-icon');
-
-            if (isTranslationOpen) {
-                container.style.maxHeight = container.scrollHeight + "px";
-                container.style.opacity = "1";
-                icon.classList.add('rotate-180');
-            } else {
-                container.style.maxHeight = "0px";
-                container.style.opacity = "0";
-                icon.classList.remove('rotate-180');
-            }
-        }
-
-        // --- FITUR PWA & NOTIFIKASI ---
-
+        // Service Worker & PWA
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js').then(reg => {
                 reg.addEventListener('updatefound', () => {
@@ -485,8 +567,8 @@
             Notification.requestPermission().then(permission => {
                 if (permission === "granted") {
                     navigator.serviceWorker.ready.then(reg => {
-                        reg.showNotification("Dzikir App", {
-                            body: "Notifikasi berhasil diaktifkan!"
+                        reg.showNotification("Dzikir", {
+                            body: "Notifikasi pengingat dzikir berhasil diaktifkan!"
                         });
                     });
                 }
@@ -502,15 +584,19 @@
         async function installPWA() {
             if (!deferredPrompt) return;
             deferredPrompt.prompt();
-            const {
-                outcome
-            } = await deferredPrompt.userChoice;
+            const { outcome } = await deferredPrompt.userChoice;
             if (outcome === 'accepted') document.getElementById('install-container').classList.add('hidden');
             deferredPrompt = null;
         }
 
-        // Mulai Ambil Data
-        loadData();
+        document.addEventListener('DOMContentLoaded', () => {
+            initGreeting();
+            if (typeof getDailyMotivation === 'function') {
+                renderMotivationQuote(getDailyMotivation());
+            }
+            fetchPrayerTimes();
+            renderDailyTracker();
+        });
     </script>
 </body>
 

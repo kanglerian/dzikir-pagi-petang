@@ -5,248 +5,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kebutuhan Muslim - Dzikir App</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="Kebutuhan Muslim - Dzikir App">
+    <meta name="description" content="Katalog kebutuhan penunjang ibadah harian kaum muslimin: perlengkapan ibadah, buku saku dzikir, mushaf Al-Qur'an, dan minyak wangi sunnah.">
+    <meta name="keywords" content="kebutuhan muslim, perlengkapan ibadah, sajadah, tasbih, mushaf al quran, minyak wangi sunnah">
+
+    <!-- Open Graph / WhatsApp Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dzikir-pagi-petang.kodelabo.com/shop.html">
+    <meta property="og:title" content="Kebutuhan Muslim - Dzikir App">
+    <meta property="og:description" content="Katalog kebutuhan penunjang ibadah harian kaum muslimin.">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/2972/2972531.png">
+
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#059669">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
     <script src="theme.js"></script>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-232W7YF5TT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-232W7YF5TT');
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* == THEME VARIABLES == */
-        :root {
-            --bg-base: #F7F3EC;
-            --bg-card: #FFFFFF;
-            --bg-elevated: #EDE9E0;
-            --text-primary: #1E1A16;
-            --text-secondary: #4A3F35;
-            --text-muted: #8B7D72;
-            --border: #DDD5C8;
-            --nav-bg: #FFFCF7;
-            --nav-border: #E8E0D5;
-            --accord-bg: #EDE9E0;
-            --input-bg: #FFFFFF;
-        }
-
-        [data-theme="dark"] {
-            --bg-base: #18160F;
-            --bg-card: #242018;
-            --bg-elevated: #2C2820;
-            --text-primary: #EDE5D5;
-            --text-secondary: #C0AE9A;
-            --text-muted: #7A6B5E;
-            --border: #38332A;
-            --nav-bg: #1E1C15;
-            --nav-border: #2E2A22;
-            --accord-bg: #2C2820;
-            --input-bg: #2C2820;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
-            background-color: var(--bg-base) !important;
-            transition: background-color 0.25s ease;
-        }
-
-        [data-theme="dark"] header.bg-emerald-600 {
-            background-color: #064E3B !important;
-        }
-
-        /* Search */
-        #search-input {
-            background-color: var(--input-bg) !important;
-            border-color: var(--border) !important;
-            color: var(--text-primary) !important;
-        }
-
-        #search-input::placeholder {
-            color: var(--text-muted) !important;
-        }
-
-        .relative>span.text-slate-400 {
-            color: var(--text-muted) !important;
-        }
-
-        /* Category buttons (inactive) */
-        .category-btn:not(.bg-emerald-600) {
-            background-color: var(--accord-bg) !important;
-            color: var(--text-secondary) !important;
-            border-color: var(--border) !important;
-        }
-
-        /* Product cards */
-        #products-grid>div {
-            background-color: var(--bg-card) !important;
-            border-color: var(--border) !important;
-            transition: background-color 0.25s ease, border-color 0.25s ease;
-        }
-
-        #products-grid h3 {
-            color: var(--text-primary) !important;
-        }
-
-        #products-grid p {
-            color: var(--text-muted) !important;
-        }
-
-        #products-grid .bg-slate-100 {
-            background-color: var(--bg-elevated) !important;
-        }
-
-        /* Empty state */
-        #empty-state h3 {
-            color: var(--text-primary) !important;
-        }
-
-        #empty-state p {
-            color: var(--text-muted) !important;
-        }
-
-        /* Nav */
-        nav {
-            background-color: var(--nav-bg) !important;
-            border-color: var(--nav-border) !important;
-            transition: background-color 0.25s ease;
-        }
-
-        nav a.text-slate-400 {
-            color: var(--text-muted) !important;
-        }
-
-        [data-theme="dark"] nav a.text-emerald-600 {
-            color: #34D399 !important;
-        }
-
-        /* Footer */
-        footer p {
-            color: var(--text-muted) !important;
-        }
-
-        [data-theme="dark"] footer .text-emerald-400 {
-            color: #6EE7B7 !important;
         }
     </style>
 </head>
 
-<body class="bg-slate-50 min-h-screen flex flex-col pb-20">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col pb-24 transition-colors duration-200">
 
-    <header class="bg-emerald-600 text-white p-4 shadow-md sticky top-0 z-10">
-        <div class="max-w-md mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <a href="index.html"
-                    class="bg-emerald-700 hover:bg-emerald-800 active:scale-95 p-1.5 rounded-full border border-emerald-400 transition-all flex items-center justify-center">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+    <!-- Header App Bar -->
+    <header class="bg-emerald-600 dark:bg-emerald-800 text-white p-3.5 shadow-md sticky top-0 z-10">
+        <div class="max-w-md mx-auto flex justify-between items-center gap-2">
+            <div class="flex items-center gap-2.5">
+                <a href="index.html" class="p-2 rounded-xl bg-emerald-700 dark:bg-emerald-900 hover:bg-emerald-800 border border-emerald-500/60 transition-all flex items-center justify-center text-white active:scale-95 shadow-sm" title="Kembali ke Beranda">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                 </a>
-                <h1 class="text-xl font-bold">Kebutuhan Muslim</h1>
+                <div>
+                    <h1 class="text-base font-extrabold leading-tight">Kebutuhan Muslim</h1>
+                    <p class="text-[10px] text-emerald-100/90 font-medium">Penunjang Ibadah Harian</p>
+                </div>
             </div>
             <div class="flex items-center gap-2">
                 <button id="theme-btn" onclick="ThemeManager.toggle()" title="Ganti Mode"
-                    class="bg-emerald-700 hover:bg-emerald-800 active:scale-95 px-2 py-1.5 rounded-xl border border-emerald-400 transition-all flex items-center text-white">
-                </button>
-                <button onclick="refreshPage()" id="refresh-btn"
-                    class="bg-emerald-700 hover:bg-emerald-800 active:scale-95 px-2 py-1.5 rounded-xl border border-emerald-400 transition-all flex items-center">
-                    <svg id="refresh-icon" class="w-3.5 h-3.5 transition-transform duration-500" fill="none"
-                        stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
+                    class="bg-emerald-700 dark:bg-emerald-900 hover:bg-emerald-800 active:scale-95 px-2.5 py-1.5 rounded-xl border border-emerald-400/60 transition-all flex items-center text-white">
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow p-4 max-w-md mx-auto w-full flex flex-col gap-4">
+    <main class="flex-grow flex flex-col items-center p-4 max-w-md mx-auto w-full gap-4">
 
-        <!-- Tombol Install PWA -->
-        <div id="install-container" class="hidden w-full">
-            <button onclick="installPWA()"
-                class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all">
-                📲 Pasang Aplikasi di HP
-            </button>
+        <!-- Search Bar -->
+        <div class="relative w-full">
+            <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="Cari sajadah, Al-Qur'an, tasbih..."
+                class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl py-3 pl-10 pr-4 text-xs font-medium text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-all shadow-xs">
+            <span class="absolute left-3.5 top-3 text-slate-400 dark:text-slate-500 text-sm">🔍</span>
         </div>
 
-        <!-- Kolom Pencarian -->
-        <div class="w-full">
-            <div class="relative flex items-center">
-                <span class="absolute left-3 text-slate-400">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </span>
-                <input type="text" id="search-input" oninput="filterProducts()"
-                    placeholder="Temukan kebutuhan penunjang ibadahmu..."
-                    class="w-full bg-white border border-slate-200 pl-10 pr-4 py-2.5 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-700 text-sm transition-all">
-            </div>
-        </div>
-
-        <!-- Filter Kategori -->
-        <div class="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-            <button onclick="selectCategory('Semua')" id="cat-Semua"
-                class="category-btn bg-emerald-600 text-white font-medium text-xs py-2 px-4 rounded-xl border border-emerald-600 shadow-sm transition-all whitespace-nowrap">
+        <!-- Filter Kategori Horizontal Scroll -->
+        <div class="flex gap-2 w-full overflow-x-auto pb-1 scrollbar-none text-xs">
+            <button onclick="filterCategory('semua')" class="category-btn bg-emerald-600 dark:bg-emerald-700 text-white font-bold px-3.5 py-2 rounded-xl transition-all whitespace-nowrap active:scale-95 shadow-xs">
                 Semua
             </button>
-            <button onclick="selectCategory('Buku')" id="cat-Buku"
-                class="category-btn bg-white text-slate-600 font-medium text-xs py-2 px-4 rounded-xl border border-slate-200 transition-all whitespace-nowrap hover:bg-slate-50">
-                Buku
+            <button onclick="filterCategory('ibadah')" class="category-btn bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 font-semibold px-3.5 py-2 rounded-xl transition-all whitespace-nowrap active:scale-95 hover:border-emerald-500">
+                🕋 Perlengkapan
             </button>
-            <button onclick="selectCategory('Aksesoris')" id="cat-Aksesoris"
-                class="category-btn bg-white text-slate-600 font-medium text-xs py-2 px-4 rounded-xl border border-slate-200 transition-all whitespace-nowrap hover:bg-slate-50">
-                Aksesoris
+            <button onclick="filterCategory('buku')" class="category-btn bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 font-semibold px-3.5 py-2 rounded-xl transition-all whitespace-nowrap active:scale-95 hover:border-emerald-500">
+                📚 Buku & Qur'an
             </button>
-            <button onclick="selectCategory('Herbal')" id="cat-Herbal"
-                class="category-btn bg-white text-slate-600 font-medium text-xs py-2 px-4 rounded-xl border border-slate-200 transition-all whitespace-nowrap hover:bg-slate-50">
-                Herbal
+            <button onclick="filterCategory('wewangian')" class="category-btn bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 font-semibold px-3.5 py-2 rounded-xl transition-all whitespace-nowrap active:scale-95 hover:border-emerald-500">
+                🌿 Minyak Wangi
             </button>
         </div>
 
-        <!-- Container Grid Produk -->
-        <div id="products-grid" class="grid grid-cols-2 gap-4 mt-2">
-            <!-- Produk akan dimuat secara dinamis dengan JS -->
+        <!-- Grid Produk -->
+        <div id="products-grid" class="grid grid-cols-2 gap-3 w-full">
+            <!-- Render via JS -->
         </div>
 
-        <!-- Tampilan Jika Produk Tidak Ditemukan -->
-        <div id="empty-state" class="hidden text-center py-10 flex flex-col items-center justify-center gap-2">
-            <span class="text-4xl">🔍</span>
-            <h3 class="text-slate-700 font-bold text-base mt-2">Produk Tidak Ditemukan</h3>
-            <p class="text-slate-400 text-xs px-6">Coba cari dengan kata kunci lain atau pilih kategori yang berbeda.
-            </p>
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden flex-col items-center justify-center py-12 text-center w-full">
+            <span class="text-4xl mb-2">🔍</span>
+            <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200">Produk Tidak Ditemukan</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Coba gunakan kata kunci pencarian yang lain.</p>
         </div>
 
     </main>
 
-    <footer class="text-center py-4 pb-24">
-        <p class="text-slate-300 text-[10px] tracking-wide">© 2026 Dzikir Harian. By Abu Ayumi.</p>
+    <footer class="p-6 text-center text-slate-400 dark:text-slate-500 text-xs">
+        <p class="font-medium">Aplikasi Dzikir Digital Pocket Book</p>
+        <p class="mt-1 opacity-60 italic">Berdasarkan Al-Qur'an dan Sunnah Rasulullah ﷺ</p>
+        <p class="mt-3 text-[10px] tracking-wide opacity-50">© 2026 Dzikir. By Abu Ayumi.</p>
     </footer>
 
-    <!-- Bottom Navigation Bar untuk PWA -->
-    <nav class="bg-white border-t border-slate-200 fixed bottom-0 left-0 right-0 z-20 shadow-lg">
+    <!-- Bottom Navigation Bar -->
+    <nav class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 fixed bottom-0 left-0 right-0 z-20 shadow-lg">
         <div class="max-w-md mx-auto flex justify-around items-center py-2">
-            <a href="index.html"
-                class="flex flex-col items-center text-slate-400 hover:text-emerald-600 transition-all font-medium py-1">
+            <a href="index.html" class="flex flex-col items-center text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-medium py-1">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
-                <span class="text-[10px] mt-1">Dzikir</span>
+                <span class="text-[10px] mt-1">Beranda</span>
             </a>
-            <a href="shop.html" class="flex flex-col items-center text-emerald-600 font-semibold py-1">
+            <a href="shop.html"
+                class="flex flex-col items-center text-emerald-600 dark:text-emerald-400 font-semibold py-1">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -258,116 +140,77 @@
 
     <script src="products.js"></script>
     <script>
-        // --- FITUR PWA INSTALL ---
-        let deferredPrompt;
+        let currentCategory = 'semua';
 
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
-        }
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            document.getElementById('install-container').classList.remove('hidden');
-        });
-
-        async function installPWA() {
-            if (!deferredPrompt) return;
-            deferredPrompt.prompt();
-            const {
-                outcome
-            } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') document.getElementById('install-container').classList.add('hidden');
-            deferredPrompt = null;
-        }
-
-        function refreshPage() {
-            const icon = document.getElementById('refresh-icon');
-            icon.style.transform = 'rotate(360deg)';
-            setTimeout(() => window.location.reload(true), 400);
-        }
-    </script>
-    <script>
-        let activeCategory = 'Semua';
-
-        function renderProducts(products) {
+        function renderProducts(list) {
             const grid = document.getElementById('products-grid');
             const emptyState = document.getElementById('empty-state');
             grid.innerHTML = '';
 
-            if (products.length === 0) {
+            if (!list || list.length === 0) {
                 grid.classList.add('hidden');
                 emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
                 return;
             }
 
             grid.classList.remove('hidden');
             emptyState.classList.add('hidden');
+            emptyState.classList.remove('flex');
 
-            products.forEach(product => {
+            list.forEach(p => {
                 const card = document.createElement('div');
-                card.className =
-                    "bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow duration-300";
+                card.className = "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 shadow-xs flex flex-col justify-between hover:border-emerald-500 transition-all";
                 card.innerHTML = `
-          <div>
-            <div class="h-32 w-full overflow-hidden bg-slate-100 relative">
-              <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
-              <span class="absolute top-2 left-2 bg-emerald-500 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm">
-                ${product.category}
-              </span>
-            </div>
-            <div class="p-3">
-              <h3 class="font-semibold text-slate-800 text-xs line-clamp-1">${product.name}</h3>
-              <p class="text-[10px] text-slate-400 mt-1 line-clamp-2">${product.description}</p>
-            </div>
-          </div>
-          <div class="px-3 pb-3">
-            <a href="${product.shopeeUrl}" target="_blank"
-              class="w-full bg-[#EE4D2D] hover:bg-[#e03d1e] text-white font-medium text-[11px] py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all shadow-sm">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-              </svg>
-              Beli di Shopee
-            </a>
-          </div>
-        `;
+                    <div>
+                        <div class="w-full h-32 bg-slate-100 dark:bg-slate-800 rounded-xl mb-2.5 flex items-center justify-center text-4xl overflow-hidden">
+                            ${p.image ? `<img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover rounded-xl" />` : p.icon}
+                        </div>
+                        <span class="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">${p.category}</span>
+                        <h3 class="font-bold text-xs text-slate-800 dark:text-slate-100 mt-0.5 line-clamp-2">${p.title}</h3>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">${p.desc}</p>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-extrabold text-emerald-700 dark:text-emerald-400">${p.price}</span>
+                        <a href="${p.link}" target="_blank" class="bg-emerald-600 dark:bg-emerald-700 hover:bg-emerald-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg transition-all active:scale-95">
+                            Beli ↗
+                        </a>
+                    </div>
+                `;
                 grid.appendChild(card);
             });
         }
 
-        function filterProducts() {
-            const searchQuery = document.getElementById('search-input').value.toLowerCase();
-
-            const filtered = productsData.filter(product => {
-                const matchesCategory = (activeCategory === 'Semua' || product.category === activeCategory);
-                const matchesSearch = product.name.toLowerCase().includes(searchQuery) ||
-                    product.description.toLowerCase().includes(searchQuery);
-                return matchesCategory && matchesSearch;
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.className = "category-btn bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 font-semibold px-3.5 py-2 rounded-xl transition-all whitespace-nowrap active:scale-95 hover:border-emerald-500";
             });
-
-            renderProducts(filtered);
-        }
-
-        function selectCategory(category) {
-            activeCategory = category;
-
-            // Update button styles
-            const buttons = document.querySelectorAll('.category-btn');
-            buttons.forEach(btn => {
-                if (btn.id === `cat-${category}`) {
-                    btn.className =
-                        "category-btn bg-emerald-600 text-white font-medium text-xs py-2 px-4 rounded-xl border border-emerald-600 shadow-sm transition-all whitespace-nowrap";
-                } else {
-                    btn.className =
-                        "category-btn bg-white text-slate-600 font-medium text-xs py-2 px-4 rounded-xl border border-slate-200 transition-all whitespace-nowrap hover:bg-slate-50";
-                }
-            });
+            event.target.className = "category-btn bg-emerald-600 dark:bg-emerald-700 text-white font-bold px-3.5 py-2 rounded-xl transition-all whitespace-nowrap active:scale-95 shadow-xs";
 
             filterProducts();
         }
 
-        // Load initial products list
-        renderProducts(productsData);
+        function filterProducts() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            let filtered = productsData;
+
+            if (currentCategory !== 'semua') {
+                filtered = filtered.filter(p => p.categoryKey === currentCategory);
+            }
+
+            if (query.trim() !== '') {
+                filtered = filtered.filter(p => p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
+            }
+
+            renderProducts(filtered);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof productsData !== 'undefined') {
+                renderProducts(productsData);
+            }
+        });
     </script>
 </body>
 
